@@ -10,7 +10,7 @@ import os
 
 def iniciar_driver():
     chrome_options = Options()
-    arguments = ['--lang=pt-BR', '--window-size=800,600', '--incognito']
+    arguments = ['--lang=pt-BR', '--window-size=800,600', '--incognito', '--headless']
     for argument in arguments:
         chrome_options.add_argument(argument)
 
@@ -55,20 +55,20 @@ titulos = driver.find_elements(
 
 # Pegar o preço de cada produto
 precos = driver.find_elements(
-    By.XPATH, '//span[@class="a-price-whole"]/text()') 
+    By.XPATH, '//span[@class="a-price-whole"]')
 
 
 # Pegar o link de cada produto
 links = driver.find_elements(
-    By.XPATH, '//h2[@class="a-size-mini a-spacing-none a-color-base s-line-clamp-4"]//a[@href]')  
+    By.XPATH, '//h2[@class="a-size-mini a-spacing-none a-color-base s-line-clamp-4"]//a[@href]')
 
 
 for titulo, preco, link in zip(titulos, precos, links):
-    with open(f'{nomeDoArquivo}.csv', 'a', encoding='utf-8', newline='') as arquivo:
+    with open(f'//NavegaPrecos//buscando_dados//dados//{nomeDoArquivo}.csv', 'a', encoding='utf-8', newline='') as arquivo:
         link_processado = link.get_attribute('href')
         arquivo.write(
             f'{titulo.text};;{preco.text};;{link_processado}\n')
-        
+
 
 print('Arquivos Pesquisados!')
 
