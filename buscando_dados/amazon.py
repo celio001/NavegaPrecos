@@ -50,7 +50,7 @@ sleep(2)
 
 # Pegar o titulo dos produtos
 titulos = driver.find_elements(
-    By.XPATH, '//h2[@class="a-size-mini a-spacing-none a-color-base s-line-clamp-4"]//span/text()')
+    By.XPATH, '//h2[@class="a-size-mini a-spacing-none a-color-base s-line-clamp-4"]//span')
 
 
 # Pegar o preço de cada produto
