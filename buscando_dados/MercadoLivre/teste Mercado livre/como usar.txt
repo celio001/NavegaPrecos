@@ -1,0 +1,3 @@
+Execute esse comando para abrir o pronpt do python
+
+jupyter notebook
